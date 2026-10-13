@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manuales de taller de carros · el de tu marca y tu modelo, con diagrama eléctrico</title>
-<meta name="description" content="Deja de pagarle al taller: manuales de taller paso a paso organizados por marca, modelo y año, con despiece, diagramas eléctricos y tablas de torque. Pago único de US$19.99.">
+<meta name="description" content="Deja de pagarle al taller: manuales de taller paso a paso organizados por marca, modelo y año, con despiece, diagramas eléctricos y tablas de torque. Pago único de US$19.99, con 80% de descuento.">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="El manual de taller de tu carro · repara tú mismo">
-<meta property="og:description" content="Manuales de taller por marca, modelo y año, con el diagrama eléctrico del tuyo. Pago único de US$19.99.">
+<meta property="og:description" content="Manuales de taller por marca, modelo y año, con el diagrama eléctrico del tuyo. Pago único de US$19.99, con 80% de descuento.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://estebanninoc.github.io/utec-carros-landing/pack-scroll/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -231,9 +231,17 @@
   .ancla{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
   .ancla s{color:var(--dim);font-family:var(--disp);font-weight:400;font-size:1.35rem;text-decoration-thickness:2px}
   .ancla .off{background:#fff;color:#000;font-family:var(--disp);font-weight:900;font-size:.9rem;letter-spacing:-.01em;padding:5px 11px;border-radius:999px;white-space:nowrap}
-  .reloj{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;background:#17171a;border:1px dashed var(--blue);border-radius:12px;padding:10px 14px;margin:18px auto 20px;max-width:420px}
-  .reloj .rl{color:var(--mut);font-size:.85rem}
-  .reloj b{font-family:var(--disp);font-weight:900;font-size:1.2rem;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  /* ORDEN 13-oct (Esteban, "que todas tengan el 80% solo hoy 15 minutos"): el reloj de
+     carros adopta el molde P6 que ya corre en motos. Deja de ser una fila con el numero
+     del tamano del texto (dashed azul, 1.2rem blanco) y pasa a bloque propio: rotulo
+     arriba con punto que late y DIGITOS GRANDES en rojo. Mismo nodo y mismo JS.
+     REVERSA: estas reglas por las 3 de antes (1.2rem, flex en fila, borde dashed azul). */
+  .reloj{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#0d1420;border:1px solid var(--blue);border-radius:14px;padding:12px 16px;margin:16px auto 22px;max-width:420px}
+  .reloj .rl{display:flex;align-items:center;gap:7px;color:var(--acc-tx);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+  .reloj .pt{width:9px;height:9px;border-radius:50%;background:var(--acc-tx);flex-shrink:0;animation:ltd 1s steps(1,end) infinite}
+  @keyframes ltd{0%,50%{opacity:1}51%,100%{opacity:.18}}
+  @media(prefers-reduced-motion:reduce){.reloj .pt{animation:none}}
+  .reloj b{font-family:var(--disp);font-weight:900;font-size:2.6rem;line-height:1;color:var(--acc-tx);font-variant-numeric:tabular-nums;letter-spacing:.01em}
   .price-now{font-family:var(--disp);font-size:3.6rem;font-weight:900;line-height:1;margin:6px 0 4px;letter-spacing:-.04em}
   .price-per{display:inline-block;background:#17171a;border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.85rem;font-weight:700;color:var(--mut);margin-top:12px}
   .price-per b{color:#fff}
@@ -241,6 +249,10 @@
   .price-list li{padding-left:30px;position:relative;color:var(--tx)}
   .price-list li::before{content:"✓";position:absolute;left:0;color:#fff;font-weight:900}
   .price-card .btn{width:100%}
+  /* 13-oct: portado del molde de motos — "ACCEDE AHORA →" se partia en 2 lineas a
+     360px (la flecha caia sola). Mismo breakpoint y mismos valores que alla.
+     REVERSA: borrar este @media. */
+  @media(max-width:560px){#btn-pago{font-size:1rem;padding:18px 16px;white-space:nowrap}}
 
   footer{border-top:1px solid var(--line);padding:40px 0 110px;text-align:center;color:var(--mut);font-size:.85rem}
   .disc{color:#5c5c64;font-size:.75rem;max-width:720px;margin:16px auto 0;line-height:1.5}
@@ -576,9 +588,10 @@ document.addEventListener('click',function(ev){
     <!-- ORDEN 2026-10-13 (Esteban): US$19.99, antes US$99.95. Un solo nivel, sin bonos ni bump. -->
     <div class="price-card">
       <div class="price-label">Precio de hoy</div>
-      <div class="ancla"><s id="anc-lista">&nbsp;</s><span class="off" id="anc-off">&nbsp;</span></div>
+      <div class="ancla"><s id="anc-lista">US$99.95</s><span class="off" id="anc-off">80% OFF</span></div>
       <div class="price-now" id="precio-grande">US$19.99</div>
-      <div class="price-per">pago único · <b>acceso de por vida</b></div>
+      <div class="price-per">✅ pago único · <b>acceso inmediato</b></div>
+      <div class="reloj" id="reloj"><span class="rl"><span class="pt" aria-hidden="true"></span>El 80% OFF de hoy termina en</span><b id="reloj-d">--:--</b></div>
       <ul class="price-list">
         <li><b>Manuales de taller</b> organizados por marca, modelo y año</li>
         <li>Despiece, montaje y diagramas eléctricos</li>
@@ -591,7 +604,6 @@ document.addEventListener('click',function(ev){
         <label class="bump" id="bump-b" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
         <div class="bump-nota" id="bump-nota" hidden></div>
       </div>
-      <div class="reloj" id="reloj"><span class="rl">✅ El precio de hoy termina en</span><b id="reloj-d">--:--</b></div>
       <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn big" id="btn-pago" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
       <div class="cta-note">Te atendemos por WhatsApp · Acceso inmediato tras confirmar</div>
   <div class="pay-row">
@@ -757,7 +769,7 @@ document.addEventListener('click',function(ev){
     var pct=Math.floor(100*(1-h/s));
     c.style.display='';
     lis.textContent='US$'+antes;
-    off.textContent='-'+pct+'%';
+    off.textContent=pct+'% OFF';
   }
   var REF=null;
   try{
