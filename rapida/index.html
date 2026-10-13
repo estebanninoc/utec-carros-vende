@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manuales de taller de carros · el de tu marca y tu modelo, con diagrama eléctrico</title>
-<meta name="description" content="Deja de pagarle al taller: manuales de taller paso a paso organizados por marca, modelo y año, con despiece, diagramas eléctricos y tablas de torque. Pago único de US$19.99, con 80% de descuento.">
+<title>Más de 24.000 manuales de taller de carros · el de tu marca y tu modelo</title>
+<meta name="description" content="Más de 24.000 manuales de taller y diagramas, organizados por marca, modelo y año, de 57 marcas de carros. Para el mecánico de taller, para el que repara su propio carro y para el que está aprendiendo. Pago único de US$19.99, con 80% de descuento.">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="El manual de taller de tu carro · repara tú mismo">
-<meta property="og:description" content="Manuales de taller por marca, modelo y año, con el diagrama eléctrico del tuyo. Pago único de US$19.99, con 80% de descuento.">
+<meta property="og:title" content="Más de 24.000 manuales de taller · el de tu carro está adentro">
+<meta property="og:description" content="57 marcas, por marca, modelo y año, con el diagrama eléctrico del tuyo. Mecánicos, dueños que reparan y los que están aprendiendo. Pago único de US$19.99.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://estebanninoc.github.io/utec-carros-landing/pack-scroll/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -95,6 +95,13 @@
      de precio y FAQ) — nada nuevo, solo resumido arriba */
   .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
   .trust-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-weight:700;font-size:.82rem;color:#fff;background:#141416;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+  /* ORDEN P7 (Esteban 13-oct): el sello de Stripe dentro del pack, "con el mismo formato
+     que motos". Las 4 reglas de abajo son COPIA del molde de motos ya aprobado; son las
+     unicas reglas nuevas de esta obra y estan declaradas en el parte. REVERSA: borrarlas. */
+  #comprar .trust-row{justify-content:center;gap:8px;margin-top:10px}
+  #comprar .trust-chip{font-size:.74rem;font-weight:600;gap:6px;padding:6px 11px}
+  .trust-chip .e{display:inline-flex;line-height:1}
+  #contenido-completo .acc summary .em{display:inline-block;width:22px;margin-right:10px}
 
   /* MOCKUP TELÉFONO (editor CapCut en blanco y negro) */
   .device{position:relative;width:262px;justify-self:center;filter:drop-shadow(0 34px 80px rgba(255,255,255,.14))}
@@ -496,18 +503,18 @@ document.addEventListener('click',function(ev){
 <nav>
   <div class="wrap">
     <div class="logo"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
-    <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA</a>
+    <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn" data-buy="1">ACCEDE AHORA</a>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
     <div class="hero-grid">
-      <div class="pill">🚗 <b>Celular + PC</b></div>
-      <h1>El manual de taller de tu carro.<br>Tu marca y tu modelo, <span class="cut">adentro</span>.</h1>
-      <p class="sub"><b>Manuales de taller organizados por marca, modelo y año</b>: Chevrolet, Toyota, Kia, Nissan, Renault y muchas más. Con el <b>diagrama eléctrico</b>, el despiece y el torque de cada tornillo. Se abre en tu celular o en el PC.</p>
+      <div class="pill">🔓 <b>Acceso de por vida</b> · celular y PC</div>
+      <h1>Más de 24.000 manuales de taller.<br>El de tu carro, <span class="cut">adentro</span>.</h1>
+      <p class="sub"><b>Para el mecánico de taller, para el que repara su propio carro y para el que está aprendiendo.</b> Organizados por marca, modelo y año: Chevrolet, Toyota, Kia, Nissan, Renault y 52 marcas más. Con el <b>diagrama eléctrico</b>, el despiece y el torque de cada tornillo.</p>
       <div class="cta-row">
-        <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn big" id="btn-hero" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
+        <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn big" id="btn-hero" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
       </div>
       <!-- ORDEN 2026-10-13 (Esteban): precio US$19.99 (antes US$99.95) y garantía 3 días. Cobro por WhatsApp
            (disparador QUIERO INFO CARROS); Stripe aplazado por orden suya. -->
@@ -516,7 +523,7 @@ document.addEventListener('click',function(ev){
         <span class="trust-chip">✅ Pago único</span>
         <span class="trust-chip">⚡ Acceso inmediato</span>
         <span class="trust-chip">🛡️ Garantía 3 días</span>
-        <span class="trust-chip">🚗 +220 personas ya lo compraron</span>
+        <span class="trust-chip">🚗 +4.400 personas ya lo compraron</span>
       </div>
 
       <div class="device" aria-hidden="true">
@@ -553,10 +560,10 @@ document.addEventListener('click',function(ev){
 
   <div class="wrap">
     <div class="badges">
-      <div class="badge"><div class="n">+220</div><div class="l">personas ya lo compraron</div></div>
-      <div class="badge"><div class="n">3</div><div class="l">días de garantía</div></div>
-      <div class="badge"><div class="n">1</div><div class="l">solo pago, para siempre</div></div>
-      <div class="badge"><div class="n">0</div><div class="l">mensualidades</div></div>
+      <div class="badge"><div class="n">+24.000</div><div class="l">manuales y diagramas</div></div>
+      <div class="badge"><div class="n">57</div><div class="l">marcas de carros</div></div>
+      <div class="badge"><div class="n">+4.400</div><div class="l">personas ya lo compraron</div></div>
+      <div class="badge"><div class="n">1</div><div class="l">solo pago, de por vida</div></div>
     </div>
   </div>
 </header>
@@ -593,29 +600,24 @@ document.addEventListener('click',function(ev){
       <div class="price-per">✅ pago único · <b>acceso inmediato</b></div>
       <div class="reloj" id="reloj"><span class="rl"><span class="pt" aria-hidden="true"></span>El 80% OFF de hoy termina en</span><b id="reloj-d">--:--</b></div>
       <ul class="price-list">
-        <li><b>Manuales de taller</b> organizados por marca, modelo y año</li>
-        <li>Despiece, montaje y diagramas eléctricos</li>
-        <li>Circuitos eléctricos, sensores y módulos</li>
-        <li>Acceso inmediato a tu carpeta privada</li>
-        <li>Garantía de 3 días sin preguntas</li>
+        <li><b>Más de 24.000 manuales</b> de taller y diagramas, de 57 marcas</li>
+        <li>Diagramas eléctricos, <b>PINOUT de ECUs y de tableros</b></li>
+        <li>Torques, transmisiones y motores pesados</li>
+        <li><b>2 cursos en video</b> + 3 bonos de regalo</li>
+        <li>Acceso de por vida · garantía de 3 días</li>
       </ul>
       <div class="bumps">
         <label class="bump" id="bump-a" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
         <label class="bump" id="bump-b" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
         <div class="bump-nota" id="bump-nota" hidden></div>
       </div>
-      <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn big" id="btn-pago" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
-      <div class="cta-note">Te atendemos por WhatsApp · Acceso inmediato tras confirmar</div>
-  <div class="pay-row">
-    <span class="pay-chip">🔒 Pago seguro</span>
-    <span class="pay-chip">Nequi</span>
-    <span class="pay-chip">Bancolombia</span>
-    <span class="pay-chip">DaviPlata</span>
-    <span class="pay-chip">Llaves</span>
-    <span class="pay-chip">🛡️ Garantía 3 días</span>
-  </div>
-
-      <div class="aviso" id="aviso-checkout">El pago se confirma por WhatsApp con un asesor y el acceso te llega al instante.</div>
+      <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn big" id="btn-pago" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
+      <div class="cta-note">Pago seguro con tarjeta · Acceso inmediato al confirmar</div>
+      <div class="trust-row">
+        <span class="trust-chip"><span class="e">🔒</span>Pago cifrado con Stripe</span>
+        <span class="trust-chip"><span class="e">💳</span>Visa · Mastercard</span>
+        <span class="trust-chip"><span class="e">🛡️</span>Garantía 3 días</span>
+      </div>
     </div>
   </div>
 </section>
@@ -686,17 +688,35 @@ document.addEventListener('click',function(ev){
     <p class="lead">Lo que ves es lo que hay.</p>
     <div class="acc">
       <details open>
-        <summary><span>1 · Manuales de taller por marca</span><span class="meta">por marca, modelo y año</span></summary>
-        <div class="acc-body"><p>Chevrolet, Toyota, Kia, Nissan, Honda, Ford, Hyundai, Mazda, Renault, Suzuki, Volkswagen, Mitsubishi, Chery, JAC, Great Wall y muchas más. Despiece, montaje y diagramas eléctricos.</p></div>
+        <summary><span class="tt"><span class="em">📘</span>1 · Manuales de taller por marca</span><span class="meta">+24.000 · 57 marcas</span></summary>
+        <div class="acc-body"><p>Carpetas <b>Marcas Americanas</b>, <b>Marcas Asiáticas</b> y <b>Marcas Europeas</b>, más <b>Manuales de Taller</b>, <b>Manuales de Motor</b>, <b>Manuales de Transmisiones</b> y <b>Manuales de Usuario</b>. Chevrolet, Toyota, Kia, Nissan, Honda, Ford, Hyundai, Mazda, Renault, Suzuki, Volkswagen, Mitsubishi, Chery, JAC, Great Wall y 42 marcas más. Despiece, montaje y orden de armado.</p></div>
       </details>
       <details>
-        <summary><span>2 · Diagnóstico, sensores y módulos</span><span class="meta">incluido</span></summary>
-        <div class="acc-body"><p>Diagnóstico profesional, mantenimiento, desmontaje, reparación de motores, frenos, suspensión, dirección y transmisión. Con circuitos eléctricos y PINOUT de módulos.</p></div>
+        <summary><span class="tt"><span class="em">⚡</span>2 · Diagramas eléctricos, ECUs y tableros</span><span class="meta">PINOUT incluido</span></summary>
+        <div class="acc-body"><p>Carpetas <b>Diagramas Eléctricos</b>, <b>PINOUT ECUS</b>, <b>PINOUT Tableros</b> y <b>Manuales y Diagramas</b>. Circuitos eléctricos, sensores y módulos, pin por pin, para diagnosticar sin adivinar.</p></div>
+      </details>
+      <details>
+        <summary><span class="tt"><span class="em">🔧</span>3 · Torques, diesel y motores pesados</span><span class="meta">incluido</span></summary>
+        <div class="acc-body"><p>Carpetas <b>Torques y Motores Pesados</b>, <b>ALDATA</b> y <b>Archivos Variados</b>. El torque de cada tornillo, datos técnicos y tablas de referencia.</p></div>
+      </details>
+      <details>
+        <summary><span class="tt"><span class="em">🎓</span>4 · Dos cursos en video</span><span class="meta">incluidos</span></summary>
+        <div class="acc-body"><p><b>Curso 1 · Electrónica Digital Automotriz</b> y <b>Curso 2 · Motores Diesel</b>. Clases en video, para descargar y ver sin internet.</p></div>
+      </details>
+      <details>
+        <summary><span class="tt"><span class="em">🎁</span>5 · Tres bonos de regalo</span><span class="meta">sin costo extra</span></summary>
+        <div class="acc-body">
+          <ul>
+            <li>Polarizado de Autos como Negocio</li>
+            <li>Aire Acondicionado Automotriz</li>
+            <li>Pintura de Carros COMPLETO (14 clases HD)</li>
+          </ul>
+        </div>
       </details>
     </div>
 
     <div class="entrega">
-      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p>US$19.99, sin mensualidades. Por Nequi, Bancolombia, DaviPlata o Llaves.</p></div>
+      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p>US$19.99, sin mensualidades. Pagas con tarjeta en la página segura de Stripe y entras de inmediato.</p></div>
       <div class="step"><div class="num">2</div><h3>Recibes el acceso al instante</h3><p>Te llega el enlace a tu carpeta privada apenas se confirma el pago.</p></div>
       <div class="step"><div class="num">3</div><h3>Buscas tu carro y lo arreglas</h3><p>PDF por marca y modelo. Se abre en el celular, incluso sin internet.</p></div>
     </div>
@@ -739,7 +759,7 @@ document.addEventListener('click',function(ev){
 
 <div class="buybar" id="buybar">
   <div class="p"><span id="buybar-precio">US$19.99</span><small>pago único · acceso inmediato</small></div>
-  <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
+  <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn" data-buy="1">ACCEDE AHORA →</a>
 </div>
 
 <script>
@@ -757,7 +777,7 @@ document.addEventListener('click',function(ev){
 
 /* precio + bonos */
 (function(){
-  var LINKS={base:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',a:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',b:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',ab:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS'};
+  var LINKS={base:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',a:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',b:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',ab:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d'};
   var PR={base:'19.99',a:'19.99',b:'19.99',ab:'19.99'};
   var ANTES={base:'99.95'};
   function pintarAncla(k){
@@ -779,13 +799,20 @@ document.addEventListener('click',function(ev){
     if(!REF) REF=sessionStorage.getItem('carrosRef');
     if(!REF && (q.get('fbclid')||/facebook\.com|instagram\.com/.test(document.referrer))) REF='CARROS-META-SINTAG';
   }catch(e){}
-  function conRef(u){ if(u.charAt(0)==='#'||u.indexOf('wa.me')>=0) return u; return REF ? u+(u.indexOf('?')<0?'?':'&')+'client_reference_id='+REF : u; }
+  function conRef(u){ if(u.charAt(0)==='#'||/wa\.me|api\.whatsapp\.com/.test(u)) return u; return REF ? u+(u.indexOf('?')<0?'?':'&')+'client_reference_id='+REF : u; }
   var ca=document.querySelector('#bump-a input'), cb=document.querySelector('#bump-b input');
   var btn=document.getElementById('btn-pago'), big=document.getElementById('precio-grande'), nota=document.getElementById('bump-nota');
   function up(){
     var k = ca.checked&&cb.checked ? 'ab' : ca.checked ? 'a' : cb.checked ? 'b' : 'base';
     var t='US$'+PR[k]; window.__precioUSD=PR[k];
-    btn.href=conRef(LINKS[k]); btn.textContent='ACCEDE AHORA →';
+    /* el href ya viene ESCRITO en el HTML; el JS lo confirma, no lo inventa: si este
+       bloque muere, los botones siguen llevando al checkout igual. Molde de motos. */
+    var compras=document.querySelectorAll('a[data-buy]');
+    for(var j=0;j<compras.length;j++){
+      if(/buy\.stripe\.com/.test(compras[j].getAttribute('href')||'')) compras[j].href=conRef(LINKS[k]);
+    }
+    btn.textContent='ACCEDE AHORA · US$'+PR[k]+' →';
+    var bh=document.getElementById('btn-hero'); if(bh) bh.textContent='ACCEDE AHORA · US$'+PR[k]+' →';
     big.textContent=t; document.getElementById('buybar-precio').textContent=t;
     document.getElementById('bump-a').classList.toggle('on',ca.checked);
     document.getElementById('bump-b').classList.toggle('on',cb.checked);
