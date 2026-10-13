@@ -503,7 +503,7 @@ document.addEventListener('click',function(ev){
 <nav>
   <div class="wrap">
     <div class="logo"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
-    <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn" data-buy="1">ACCEDE · US$19.99</a>
+    <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419" class="btn" data-buy="1" id="btn-nav">ACCEDE · US$19.99</a>
   </div>
 </nav>
 
@@ -514,11 +514,11 @@ document.addEventListener('click',function(ev){
       <h1>Más de 24.000 manuales de taller.<br>El de tu carro, <span class="cut">adentro</span>.</h1>
       <p class="sub"><b>Para el mecánico de taller, para el que repara su propio carro y para el que está aprendiendo.</b> Organizados por marca, modelo y año: Chevrolet, Toyota, Kia, Nissan, Renault y 52 marcas más. Con el <b>diagrama eléctrico</b>, el despiece y el torque de cada tornillo.</p>
       <div class="cta-row">
-        <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn big" id="btn-hero" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
+        <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419" class="btn big" id="btn-hero" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
       </div>
       <!-- ORDEN 2026-10-13 (Esteban): precio US$19.99 (antes US$99.95) y garantía 3 días. Cobro por WhatsApp
            (disparador QUIERO INFO CARROS); Stripe aplazado por orden suya. -->
-      <div class="cta-note">Pago único de US$19.99 (antes US$99.95) · Acceso inmediato · Es tuyo para siempre</div>
+      <div class="cta-note">Pago único de <span id="hero-precio">US$19.99</span> (antes <span id="hero-antes">US$99.95</span>) · Acceso inmediato · Es tuyo para siempre</div>
       <div class="trust-row">
         <span class="trust-chip">✅ Pago único</span>
         <span class="trust-chip">⚡ Acceso inmediato</span>
@@ -611,7 +611,7 @@ document.addEventListener('click',function(ev){
         <label class="bump" id="bump-b" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
         <div class="bump-nota" id="bump-nota" hidden></div>
       </div>
-      <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn big" id="btn-pago" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
+      <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419" class="btn big" id="btn-pago" data-buy="1">ACCEDE AHORA · US$19.99 →</a>
       <div class="cta-note">Pago seguro con tarjeta · Acceso inmediato al confirmar</div>
       <div class="trust-row">
         <span class="trust-chip"><span class="e">🔒</span>Pago cifrado con Stripe</span>
@@ -716,7 +716,7 @@ document.addEventListener('click',function(ev){
     </div>
 
     <div class="entrega">
-      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p>US$19.99, sin mensualidades. Pagas con tarjeta en la página segura de Stripe y entras de inmediato.</p></div>
+      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p><span id="paso-precio">US$19.99</span>, sin mensualidades. Pagas con tarjeta en la página segura de Stripe y entras de inmediato.</p></div>
       <div class="step"><div class="num">2</div><h3>Recibes el acceso al instante</h3><p>Te llega el enlace a tu carpeta privada apenas se confirma el pago.</p></div>
       <div class="step"><div class="num">3</div><h3>Buscas tu carro y lo arreglas</h3><p>PDF por marca y modelo. Se abre en el celular, incluso sin internet.</p></div>
     </div>
@@ -759,7 +759,7 @@ document.addEventListener('click',function(ev){
 
 <div class="buybar" id="buybar">
   <div class="p"><span id="buybar-precio">US$19.99</span><small>pago único · acceso inmediato</small></div>
-  <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d" class="btn" data-buy="1">ACCEDE AHORA →</a>
+  <a href="https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419" class="btn" data-buy="1">ACCEDE AHORA →</a>
 </div>
 
 <script>
@@ -777,18 +777,79 @@ document.addEventListener('click',function(ev){
 
 /* precio + bonos */
 (function(){
-  var LINKS={base:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',a:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',b:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d',ab:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d'};
+  var LINKS={base:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419',a:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419',b:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419',ab:'https://buy.stripe.com/cNi7sK0U6dLYgKvc640RG0d?locale=es-419'};
   var PR={base:'19.99',a:'19.99',b:'19.99',ab:'19.99'};
   var ANTES={base:'99.95'};
+  /* ══ MONEDA LOCAL EN PANTALLA ═══════════════════════════════════════════
+     Molde de curso.melamina.pro portado tal cual (orden de Esteban 13-oct-2026:
+     "que cada vez que alguien entre se convierta a su moneda local").
+     COMO SE DETECTA: por la zona horaria del navegador
+     (Intl.DateTimeFormat().resolvedOptions().timeZone). Sin geo-IP, sin llamada
+     de red, sin dependencia de terceros y sin un milisegundo de latencia.
+     DE DONDE SALE CADA NUMERO: de los currency_options del price que COBRA hoy
+     (price_1UQ3IhCkKktoiQEZtxE766rt), leidos por GET el 2026-10-13. DIGITO A DIGITO.
+     Prohibido convertir por TRM y prohibido redondear: si la pantalla y Stripe
+     no dicen el mismo numero, el comprador ve un precio y paga otro.
+     Stripe entrega el monto en unidad MENOR; el exponente de cada moneda se
+     verifico reproduciendo la TAB ya publicada de melamina (CLP y PYG van sin
+     decimales, las otras 12 con 2). La division ya esta hecha aca.
+     FAIL-SAFE: zona fuera del mapa (Europa, USA, Ecuador, Panama, El Salvador)
+     => MON=null => se pinta USD igual que hoy, con los MISMOS literales.
+     Nunca pantalla en blanco, nunca undefined, nunca NaN: un precio roto es
+     peor que un precio en dolares. */
+  var TAB={"ARS":33900,"BOB":259,"BRL":107.99,"CLP":19900,"COP":69900,"CRC":9990,"DOP":1219,"GTQ":159.99,"HNL":589,"MXN":369,"NIO":789,"PEN":72.99,"PYG":125900,"UYU":859};
+  var TZ2CC={"America/Bogota":"CO","America/Mexico_City":"MX","America/Cancun":"MX","America/Merida":"MX","America/Monterrey":"MX","America/Matamoros":"MX","America/Chihuahua":"MX","America/Ciudad_Juarez":"MX","America/Ojinaga":"MX","America/Hermosillo":"MX","America/Mazatlan":"MX","America/Bahia_Banderas":"MX","America/Tijuana":"MX","America/Lima":"PE","America/Santiago":"CL","America/Punta_Arenas":"CL","Pacific/Easter":"CL","America/Guatemala":"GT","America/Tegucigalpa":"HN","America/Managua":"NI","America/Costa_Rica":"CR","America/Santo_Domingo":"DO","America/Asuncion":"PY","America/Montevideo":"UY","America/La_Paz":"BO","America/Buenos_Aires":"AR","America/Cordoba":"AR","America/Mendoza":"AR","America/Rosario":"AR","America/Catamarca":"AR","America/Jujuy":"AR","America/Sao_Paulo":"BR","America/Bahia":"BR","America/Fortaleza":"BR","America/Recife":"BR","America/Belem":"BR","America/Manaus":"BR","America/Cuiaba":"BR","America/Campo_Grande":"BR","America/Porto_Velho":"BR","America/Boa_Vista":"BR","America/Rio_Branco":"BR","America/Maceio":"BR","America/Araguaina":"BR","America/Santarem":"BR","America/Eirunepe":"BR","America/Noronha":"BR","America/Sao_Luis":"BR","America/Guayaquil":"EC","America/El_Salvador":"SV","America/Panama":"PA","America/Argentina":"AR","America/Santa_Isabel":"MX"};
+  var MONEDAS={CO:"COP",MX:"MXN",PE:"PEN",CL:"CLP",AR:"ARS",BR:"BRL",GT:"GTQ",HN:"HNL",NI:"NIO",CR:"CRC",DO:"DOP",PY:"PYG",UY:"UYU",BO:"BOB",EC:null,SV:null,PA:null};
+  var SIM={COP:"$",MXN:"$",ARS:"$",CLP:"$",UYU:"$",DOP:"RD$",PEN:"S/",BRL:"R$",GTQ:"Q",HNL:"L",NIO:"C$",CRC:"\u20a1",PYG:"\u20b2",BOB:"Bs"};
+  var LOC={COP:"es-CO",MXN:"es-MX",ARS:"es-AR",CLP:"es-CL",PEN:"es-PE",UYU:"es-UY",BOB:"es-BO",PYG:"es-PY",GTQ:"es-GT",HNL:"es-HN",NIO:"es-NI",CRC:"es-CR",DOP:"es-DO",BRL:"pt-BR"};
+  var MON=null;
+  try{
+    var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||"";
+    var cc=TZ2CC[tz]||TZ2CC[tz.replace("/Argentina/","/")]||TZ2CC[String(tz).split("/").slice(0,2).join("/")]||null;
+    var cur=cc?MONEDAS[cc]:null;
+    if(cur&&TAB[cur]) MON={cur:cur,t:TAB[cur]};
+  }catch(e){}
+  function fnum(n){
+    var dec=(n%1!==0)?2:0;
+    return SIM[MON.cur]+n.toLocaleString(LOC[MON.cur]||"es",{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  }
+  /* en USD se devuelve el LITERAL de siempre, no un numero reformateado: el
+     visitante de fuera de la tabla recibe exactamente los bytes de hoy. */
+  function precio(k){ return MON ? fnum(MON.t) : 'US$'+PR[k]; }
+  /* el grano de redondeo sale de la PROPIA TAB, como grano() en melamina: si el
+     precio de la moneda es entero, el tachado cae en el mismo orden de decenas
+     o centenas; si lleva decimales, termina en .99 como el precio.
+     DIFERENCIA DECLARADA CON MELAMINA: alla el ancla es una SUMA de precios de
+     lista y se redondea hacia ABAJO, porque hacia arriba la inflaria. Aca el
+     ancla no es una suma: es el inverso aritmetico del 80% YA PUBLICADO
+     (19.99 / 0,20 = 99.95). Redondear hacia abajo en las monedas con decimales
+     bajaria el badge publicado de 80% a 79%, asi que aca va hacia ARRIBA y el
+     ajuste maximo son 4 centavos. El porcentaje NO se escribe de memoria:
+     pintarAncla lo recalcula con los dos numeros que tiene delante, de modo que
+     si algun dia deja de dar 80 se publica el REAL. */
+  function grano(v){
+    if(v%1!==0) return 0.01;
+    var g=1000;
+    while(g>1){ if(v%g===0) return g; g/=10; }
+    return 1;
+  }
+  function anclaLocal(v){
+    var g=grano(v), x=v/0.20;
+    if(g===0.01) return (x%1===0) ? x : Math.ceil(x)-0.01;
+    return Math.ceil(x/g)*g;
+  }
   function pintarAncla(k){
     var c=document.querySelector('.ancla'), lis=document.getElementById('anc-lista'), off=document.getElementById('anc-off');
     if(!c) return;
     var antes=ANTES[k];
-    var s=antes?parseFloat(antes):0, h=parseFloat(PR[k]);
+    if(!antes){ c.style.display='none'; return; }
+    /* en moneda local los dos numeros salen de la TAB (el de hoy) y de su propio
+       80% (el tachado); en USD salen de los literales de siempre. */
+    var s=MON?anclaLocal(MON.t):parseFloat(antes), h=MON?MON.t:parseFloat(PR[k]);
     if(!(s>h)){ c.style.display='none'; return; }   /* antes callarse que mentir */
     var pct=Math.floor(100*(1-h/s));
     c.style.display='';
-    lis.textContent='US$'+antes;
+    lis.textContent=MON?fnum(s):'US$'+antes;
     off.textContent=pct+'% OFF';
   }
   var REF=null;
@@ -804,20 +865,26 @@ document.addEventListener('click',function(ev){
   var btn=document.getElementById('btn-pago'), big=document.getElementById('precio-grande'), nota=document.getElementById('bump-nota');
   function up(){
     var k = ca.checked&&cb.checked ? 'ab' : ca.checked ? 'a' : cb.checked ? 'b' : 'base';
-    var t='US$'+PR[k]; window.__precioUSD=PR[k];
+    var t=precio(k); window.__precioUSD=PR[k];   /* el pixel sigue en USD */
     /* el href ya viene ESCRITO en el HTML; el JS lo confirma, no lo inventa: si este
        bloque muere, los botones siguen llevando al checkout igual. Molde de motos. */
     var compras=document.querySelectorAll('a[data-buy]');
     for(var j=0;j<compras.length;j++){
       if(/buy\.stripe\.com/.test(compras[j].getAttribute('href')||'')) compras[j].href=conRef(LINKS[k]);
     }
-    btn.textContent='ACCEDE AHORA · US$'+PR[k]+' →';
-    var bh=document.getElementById('btn-hero'); if(bh) bh.textContent='ACCEDE AHORA · US$'+PR[k]+' →';
+    btn.textContent='ACCEDE AHORA · '+t+' →';
+    var bh=document.getElementById('btn-hero'); if(bh) bh.textContent='ACCEDE AHORA · '+t+' →';
     big.textContent=t; document.getElementById('buybar-precio').textContent=t;
     document.getElementById('bump-a').classList.toggle('on',ca.checked);
     document.getElementById('bump-b').classList.toggle('on',cb.checked);
     nota.innerHTML = '';
     var fp=document.getElementById('faq-precio'); if(fp) fp.textContent=t;
+    var nv=document.getElementById('btn-nav'); if(nv) nv.textContent='ACCEDE · '+t;
+    /* los puntos que el HTML traia clavados en dolares: si este bloque muere,
+       el HTML sigue mostrando US$ y el boton sigue llevando al checkout. */
+    var hp=document.getElementById('hero-precio'); if(hp) hp.textContent=t;
+    var ha=document.getElementById('hero-antes'); if(ha) ha.textContent=MON?fnum(anclaLocal(MON.t)):'US$'+ANTES['base'];
+    var pp=document.getElementById('paso-precio'); if(pp) pp.textContent=t;
     pintarAncla(k);
   }
   ca.addEventListener('change',up); cb.addEventListener('change',up); up();
