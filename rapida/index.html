@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CARROS PRO: [PENDIENTE] manuales de taller de [PENDIENTE] marcas · repara tu carro tú mismo</title>
-<meta name="description" content="Deja de pagarle al taller: [PENDIENTE] manuales paso a paso de [PENDIENTE] marcas, despiece, diagramas eléctricos y tablas de torque. Pago único US$12.99.">
+<title>Manuales de taller de carros · el de tu marca y tu modelo, con diagrama eléctrico</title>
+<meta name="description" content="Deja de pagarle al taller: manuales de taller paso a paso organizados por marca, modelo y año, con despiece, diagramas eléctricos y tablas de torque. Pago único de US$19.99.">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="CARROS PRO: repara tu carro tú mismo">
-<meta property="og:description" content="[PENDIENTE] manuales de taller de [PENDIENTE] marcas. Pago único US$12.99.">
+<meta property="og:title" content="El manual de taller de tu carro · repara tú mismo">
+<meta property="og:description" content="Manuales de taller por marca, modelo y año, con el diagrama eléctrico del tuyo. Pago único de US$19.99.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://estebanninoc.github.io/utec-carros-landing/pack-scroll/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -475,7 +475,7 @@ fbq('init',PIXEL_ID);
 fbq('track','PageView');
 document.addEventListener('click',function(ev){
   var a = ev.target.closest ? ev.target.closest('[data-buy]') : null;
-  if(a){ fbq('track','InitiateCheckout',{value:parseFloat(window.__precioUSD)||12.99,currency:'USD'}); }
+  if(a){ fbq('track','InitiateCheckout',{value:parseFloat(window.__precioUSD)||19.99,currency:'USD'}); }
 },true);
 </script>
 </head>
@@ -483,26 +483,28 @@ document.addEventListener('click',function(ev){
 
 <nav>
   <div class="wrap">
-    <div class="logo"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">PRO</span></div>
-    <a href="#comprar" class="btn">Quiero los manuales</a>
+    <div class="logo"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
+    <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA</a>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
     <div class="hero-grid">
-      <div class="pill">🚗 Biblioteca de taller CARROS PRO · <b>Celular + PC</b></div>
-      <h1>Deja de pagarle al taller.<br>Repara tu carro <span class="cut">tú mismo</span>.</h1>
-      <p class="sub"><b>Más de <span class="pend">[PENDIENTE]</span> manuales de taller</b> de <b><span class="pend">[PENDIENTE]</span> marcas</b>, con despiece, diagramas eléctricos y el paso a paso para arreglar las fallas más comunes. En tu celular o en el PC.</p>
+      <div class="pill">🚗 <b>Celular + PC</b></div>
+      <h1>El manual de taller de tu carro.<br>Tu marca y tu modelo, <span class="cut">adentro</span>.</h1>
+      <p class="sub"><b>Manuales de taller organizados por marca, modelo y año</b>: Chevrolet, Toyota, Kia, Nissan, Renault y muchas más. Con el <b>diagrama eléctrico</b>, el despiece y el torque de cada tornillo. Se abre en tu celular o en el PC.</p>
       <div class="cta-row">
-        <a href="#comprar" class="btn big" id="btn-hero">Quiero mis manuales · US$12.99 →</a>
+        <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn big" id="btn-hero" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
       </div>
-      <!-- PROVISIONAL: confirmar con Esteban (precio US$12.99 y garantía 7 días, heredados de motos) -->
-      <div class="cta-note">Pago único · Acceso inmediato · Es tuyo para siempre</div>
+      <!-- ORDEN 2026-10-13 (Esteban): precio US$19.99 (antes US$99.95) y garantía 3 días. Cobro por WhatsApp
+           (disparador QUIERO INFO CARROS); Stripe aplazado por orden suya. -->
+      <div class="cta-note">Pago único de US$19.99 (antes US$99.95) · Acceso inmediato · Es tuyo para siempre</div>
       <div class="trust-row">
         <span class="trust-chip">✅ Pago único</span>
         <span class="trust-chip">⚡ Acceso inmediato</span>
-        <span class="trust-chip">🛡️ Garantía 7 días</span>
+        <span class="trust-chip">🛡️ Garantía 3 días</span>
+        <span class="trust-chip">🚗 +220 personas ya lo compraron</span>
       </div>
 
       <div class="device" aria-hidden="true">
@@ -512,7 +514,7 @@ document.addEventListener('click',function(ev){
               <!-- CA1: el carrusel de 3 clips de moto no sirve para carros. Placeholder del
                    mismo tamaño; estructura de 3 slides original queda en comentario en
                    README-carros.md lista para pegar de vuelta cuando haya clips de carro. -->
-              <div class="anim-ph"><span>Animación de carro — en producción</span></div>
+              <img src="img/dp-frames/mob/f_040.webp" alt="Motor de un carro abierto en despiece, pieza por pieza." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="eager" decoding="async">
               <span class="rec">Paso a paso</span>
             </div>
           </div>
@@ -522,7 +524,7 @@ document.addEventListener('click',function(ev){
   </div>
 
   <div class="marcas">
-    <p class="marcas-lb">Compatible con <span class="pend">[PENDIENTE]</span> marcas</p>
+    <p class="marcas-lb">Compatible con las marcas que ves aquí</p>
     <!-- CA9: marcas reales de carros LatAm, 57 en total repartidas en las 2 cintas por
          origen (42 no-chinas arriba + 15 chinas abajo); misma animación/CSS de .cinta-tx. -->
     <div class="cinta"><div class="cinta-track"><span class="cinta-grp">
@@ -539,10 +541,10 @@ document.addEventListener('click',function(ev){
 
   <div class="wrap">
     <div class="badges">
-      <div class="badge"><div class="n"><span class="pend">[PENDIENTE]</span></div><div class="l">manuales de taller</div></div>
-      <div class="badge"><div class="n"><span class="pend">[PENDIENTE]</span></div><div class="l">marcas de autos</div></div>
-      <div class="badge"><div class="n"><span class="pend">[PENDIENTE]</span></div><div class="l">de contenido</div></div>
-      <div class="badge"><div class="n"><span class="pend">[PENDIENTE]</span></div><div class="l">tipos de motor cubiertos</div></div>
+      <div class="badge"><div class="n">+220</div><div class="l">personas ya lo compraron</div></div>
+      <div class="badge"><div class="n">3</div><div class="l">días de garantía</div></div>
+      <div class="badge"><div class="n">1</div><div class="l">solo pago, para siempre</div></div>
+      <div class="badge"><div class="n">0</div><div class="l">mensualidades</div></div>
     </div>
   </div>
 </header>
@@ -570,37 +572,38 @@ document.addEventListener('click',function(ev){
 <section id="comprar">
   <div class="wrap" style="text-align:center">
     <div class="eyebrow">Empieza hoy</div>
-    <h2 class="title">Arma tu pack, un solo pago</h2>
-    <!-- PROVISIONAL: confirmar con Esteban (precio US$12.99 y garantía 7 días, heredados de motos) -->
+    <h2 class="title">Un solo pago, acceso de por vida</h2>
+    <!-- ORDEN 2026-10-13 (Esteban): US$19.99, antes US$99.95. Un solo nivel, sin bonos ni bump. -->
     <div class="price-card">
       <div class="price-label">Precio de hoy</div>
       <div class="ancla"><s id="anc-lista">&nbsp;</s><span class="off" id="anc-off">&nbsp;</span></div>
-      <div class="price-now" id="precio-grande">US$12.99</div>
+      <div class="price-now" id="precio-grande">US$19.99</div>
       <div class="price-per">pago único · <b>acceso de por vida</b></div>
       <ul class="price-list">
-        <li><b><span class="pend">[PENDIENTE]</span> manuales</b> de taller de <span class="pend">[PENDIENTE]</span> marcas</li>
+        <li><b>Manuales de taller</b> organizados por marca, modelo y año</li>
         <li>Despiece, montaje y diagramas eléctricos</li>
-        <li>Curso completo de Mecánica automotriz <span class="pend">[PENDIENTE]</span></li>
+        <li>Circuitos eléctricos, sensores y módulos</li>
         <li>Acceso inmediato a tu carpeta privada</li>
-        <li>Garantía de 7 días sin preguntas</li>
+        <li>Garantía de 3 días sin preguntas</li>
       </ul>
       <div class="bumps">
-        <label class="bump" id="bump-a"><input type="checkbox"><span class="bx"></span><span class="bt">🎁 <b>Bonus <span class="pend">[PENDIENTE]</span></b><small><span class="pend">[PENDIENTE]</span></small></span><span class="bp">+US$1.99</span></label>
-        <label class="bump" id="bump-b"><input type="checkbox"><span class="bx"></span><span class="bt">🎁 <b>Bonus <span class="pend">[PENDIENTE]</span></b><small><span class="pend">[PENDIENTE]</span></small></span><span class="bp">+US$1.99</span></label>
-        <div class="bump-nota" id="bump-nota">Marca los dos y te llevas <b>todo por US$16.97</b></div>
+        <label class="bump" id="bump-a" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
+        <label class="bump" id="bump-b" hidden><input type="checkbox"><span class="bx"></span><span class="bt"></span><span class="bp"></span></label>
+        <div class="bump-nota" id="bump-nota" hidden></div>
       </div>
-      <div class="reloj" id="reloj"><span class="rl">La oferta termina en</span><b id="reloj-d">--:--</b></div>
-      <a href="#STRIPE-PENDIENTE" class="btn big" id="btn-pago" data-buy="1">Quiero mi acceso ahora · US$12.99 →</a>
-      <div class="cta-note">Pago seguro · Acceso inmediato tras confirmar</div>
+      <div class="reloj" id="reloj"><span class="rl">✅ El precio de hoy termina en</span><b id="reloj-d">--:--</b></div>
+      <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn big" id="btn-pago" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
+      <div class="cta-note">Te atendemos por WhatsApp · Acceso inmediato tras confirmar</div>
   <div class="pay-row">
-    <span class="pay-chip"><svg width="30" height="16" viewBox="0 0 30 16" role="img" aria-label="Visa"><text x="0" y="13" font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="900" font-size="15" letter-spacing="-.5" fill="currentColor">VISA</text></svg></span>
-    <span class="pay-chip"><svg width="20" height="16" viewBox="0 0 20 16" aria-hidden="true"><circle cx="7" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="13" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Mastercard</span>
-    <span class="pay-chip"><svg width="40" height="16" viewBox="0 0 40 16" role="img" aria-label="American Express"><rect x=".75" y=".75" width="38.5" height="14.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="20" y="11" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="8" letter-spacing=".5" fill="currentColor">AMEX</text></svg></span>
-    <span class="pay-chip"><svg width="50" height="16" viewBox="0 0 50 16" role="img" aria-label="PayPal"><text x="0" y="13" font-family="'Inter Tight',Arial,sans-serif" font-weight="800" font-size="14" fill="currentColor">PayPal</text></svg></span>
-    <span class="pay-chip"><svg width="98" height="16" viewBox="0 0 98 16" role="img" aria-label="Mercado Pago"><text x="0" y="13" font-family="'Inter Tight',Arial,sans-serif" font-weight="800" font-size="13" fill="currentColor">Mercado Pago</text></svg></span>
+    <span class="pay-chip">🔒 Pago seguro</span>
+    <span class="pay-chip">Nequi</span>
+    <span class="pay-chip">Bancolombia</span>
+    <span class="pay-chip">DaviPlata</span>
+    <span class="pay-chip">Llaves</span>
+    <span class="pay-chip">🛡️ Garantía 3 días</span>
   </div>
 
-      <div class="aviso" id="aviso-checkout">Página en preparación: el pago todavía no está conectado.</div>
+      <div class="aviso" id="aviso-checkout">El pago se confirma por WhatsApp con un asesor y el acceso te llega al instante.</div>
     </div>
   </div>
 </section>
@@ -671,23 +674,17 @@ document.addEventListener('click',function(ev){
     <p class="lead">Lo que ves es lo que hay.</p>
     <div class="acc">
       <details open>
-        <summary><span>1 · Manuales de taller por marca</span><span class="meta"><span class="pend">[PENDIENTE]</span> manuales · <span class="pend">[PENDIENTE]</span> marcas</span></summary>
-        <div class="acc-body"><p>Marcas incluidas: <span class="pend">[PENDIENTE]</span>. Despiece, montaje y diagramas eléctricos.</p></div>
+        <summary><span>1 · Manuales de taller por marca</span><span class="meta">por marca, modelo y año</span></summary>
+        <div class="acc-body"><p>Chevrolet, Toyota, Kia, Nissan, Honda, Ford, Hyundai, Mazda, Renault, Suzuki, Volkswagen, Mitsubishi, Chery, JAC, Great Wall y muchas más. Despiece, montaje y diagramas eléctricos.</p></div>
       </details>
       <details>
-        <summary><span>2 · Curso de Mecánica Automotriz</span><span class="meta">incluido</span></summary>
-        <div class="acc-body"><p>Contenido del curso: <span class="pend">[PENDIENTE]</span>.</p></div>
-      </details>
-      <details>
-        <summary><span>3 · Bonos</span><span class="meta">agrégalos a tu pedido</span></summary>
-        <div class="acc-body">
-          <p>Nombres y contenido de los bonos: <span class="pend">[PENDIENTE]</span>.</p>
-        </div>
+        <summary><span>2 · Diagnóstico, sensores y módulos</span><span class="meta">incluido</span></summary>
+        <div class="acc-body"><p>Diagnóstico profesional, mantenimiento, desmontaje, reparación de motores, frenos, suspensión, dirección y transmisión. Con circuitos eléctricos y PINOUT de módulos.</p></div>
       </details>
     </div>
 
     <div class="entrega">
-      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p>US$12.99, sin mensualidades. Con tarjeta, PayPal o Mercado Pago.</p></div>
+      <div class="step"><div class="num">1</div><h3>Pagas una sola vez</h3><p>US$19.99, sin mensualidades. Por Nequi, Bancolombia, DaviPlata o Llaves.</p></div>
       <div class="step"><div class="num">2</div><h3>Recibes el acceso al instante</h3><p>Te llega el enlace a tu carpeta privada apenas se confirma el pago.</p></div>
       <div class="step"><div class="num">3</div><h3>Buscas tu carro y lo arreglas</h3><p>PDF por marca y modelo. Se abre en el celular, incluso sin internet.</p></div>
     </div>
@@ -695,13 +692,13 @@ document.addEventListener('click',function(ev){
 </section>
 
 <!-- GARANTÍA -->
-<!-- PROVISIONAL: confirmar con Esteban (garantía 7 días, heredada de motos) -->
+<!-- ORDEN 2026-10-13 (Esteban): garantía de 3 días. -->
 <section style="background:var(--panel)">
   <div class="wrap">
     <div class="guar">
       <div class="shield">🛡️</div>
-      <h2 class="title" style="margin-bottom:10px">Garantía de 7 días</h2>
-      <p class="lead" style="margin:0 auto">Tiempo real para revisar los manuales antes de decidir. Si en 7 días no es lo que esperabas, te devolvemos el 100% de tu dinero.</p>
+      <h2 class="title" style="margin-bottom:10px">Garantía de 3 días</h2>
+      <p class="lead" style="margin:0 auto">Tiempo real para revisar los manuales antes de decidir. Si en 3 días no es lo que esperabas, te devolvemos el 100% de tu dinero.</p>
     </div>
   </div>
 </section>
@@ -712,9 +709,9 @@ document.addEventListener('click',function(ev){
     <div class="eyebrow">Preguntas frecuentes</div>
     <h2 class="title">Lo que todos preguntan</h2>
     <div class="acc">
-<details><summary><span>¿Sirve para mi carro?</span></summary><div class="acc-body">Son <span class="pend">[PENDIENTE]</span> manuales de <span class="pend">[PENDIENTE]</span> marcas. Si no ubicas el tuyo, te ayudamos a encontrarlo por soporte.</div></details>
+<details><summary><span>¿Sirve para mi carro?</span></summary><div class="acc-body">Están organizados por marca, modelo y año. Escríbenos tu marca y tu modelo por WhatsApp y te decimos si está antes de que pagues.</div></details>
   <details><summary><span>¿Necesito experiencia en mecánica?</span></summary><div class="acc-body">No. El manual te muestra cada pieza y el orden para desarmar y armar, paso a paso.</div></details>
-  <details><summary><span>¿Es un pago único?</span></summary><div class="acc-body">Sí. <b id="faq-precio">US$12.99</b> una sola vez, acceso de por vida y 7 días de garantía: si no te sirve, te devolvemos el dinero.</div></details>
+  <details><summary><span>¿Es un pago único?</span></summary><div class="acc-body">Sí. <b id="faq-precio">US$19.99</b> una sola vez, acceso de por vida y 3 días de garantía: si no te sirve, te devolvemos el dinero.</div></details>
   <details><summary><span>¿Cómo recibo los manuales?</span></summary><div class="acc-body">Apenas pagas te llega el acceso. Son PDF que abres en el celular o el PC, y funcionan sin internet una vez descargados.</div></details>
     </div>
   </div>
@@ -722,15 +719,15 @@ document.addEventListener('click',function(ev){
 
 <footer>
   <div class="wrap">
-    <div class="logo" style="justify-content:center;margin-bottom:12px"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">PRO</span></div>
+    <div class="logo" style="justify-content:center;margin-bottom:12px"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
     <p>© 2026 · Biblioteca digital de mecánica automotriz. Entrega digital inmediata.</p>
     <p class="disc">Las marcas y logotipos mostrados pertenecen a sus respectivos dueños y se muestran solo para indicar compatibilidad de los manuales. Este material es una biblioteca educativa independiente; no está afiliado, patrocinado ni respaldado por ninguno de esos fabricantes.</p>
   </div>
 </footer>
 
 <div class="buybar" id="buybar">
-  <div class="p"><span id="buybar-precio">US$12.99</span><small>pago único · acceso inmediato</small></div>
-  <a href="#comprar" class="btn">Quiero los manuales →</a>
+  <div class="p"><span id="buybar-precio">US$19.99</span><small>pago único · acceso inmediato</small></div>
+  <a href="https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS" class="btn" data-buy="1" target="_blank" rel="noopener">ACCEDE AHORA →</a>
 </div>
 
 <script>
@@ -748,9 +745,9 @@ document.addEventListener('click',function(ev){
 
 /* precio + bonos */
 (function(){
-  var LINKS={base:'#STRIPE-PENDIENTE',a:'#STRIPE-PENDIENTE',b:'#STRIPE-PENDIENTE',ab:'#STRIPE-PENDIENTE'};
-  var PR={base:'12.99',a:'14.98',b:'14.98',ab:'16.97'};
-  var ANTES={base:'29.99'};
+  var LINKS={base:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',a:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',b:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS',ab:'https://wa.me/573132579097?text=QUIERO%20INFO%20CARROS'};
+  var PR={base:'19.99',a:'19.99',b:'19.99',ab:'19.99'};
+  var ANTES={base:'99.95'};
   function pintarAncla(k){
     var c=document.querySelector('.ancla'), lis=document.getElementById('anc-lista'), off=document.getElementById('anc-off');
     if(!c) return;
@@ -770,17 +767,17 @@ document.addEventListener('click',function(ev){
     if(!REF) REF=sessionStorage.getItem('carrosRef');
     if(!REF && (q.get('fbclid')||/facebook\.com|instagram\.com/.test(document.referrer))) REF='CARROS-META-SINTAG';
   }catch(e){}
-  function conRef(u){ if(u.charAt(0)==='#') return u; return REF ? u+(u.indexOf('?')<0?'?':'&')+'client_reference_id='+REF : u; }
+  function conRef(u){ if(u.charAt(0)==='#'||u.indexOf('wa.me')>=0) return u; return REF ? u+(u.indexOf('?')<0?'?':'&')+'client_reference_id='+REF : u; }
   var ca=document.querySelector('#bump-a input'), cb=document.querySelector('#bump-b input');
   var btn=document.getElementById('btn-pago'), big=document.getElementById('precio-grande'), nota=document.getElementById('bump-nota');
   function up(){
     var k = ca.checked&&cb.checked ? 'ab' : ca.checked ? 'a' : cb.checked ? 'b' : 'base';
     var t='US$'+PR[k]; window.__precioUSD=PR[k];
-    btn.href=conRef(LINKS[k]); btn.textContent='Quiero mi acceso ahora · '+t+' →';
+    btn.href=conRef(LINKS[k]); btn.textContent='ACCEDE AHORA →';
     big.textContent=t; document.getElementById('buybar-precio').textContent=t;
     document.getElementById('bump-a').classList.toggle('on',ca.checked);
     document.getElementById('bump-b').classList.toggle('on',cb.checked);
-    nota.innerHTML = (k==='ab') ? '🎉 Te llevas <b>todo por US$16.97</b>' : 'Marca los dos y te llevas <b>todo por US$16.97</b>';
+    nota.innerHTML = '';
     var fp=document.getElementById('faq-precio'); if(fp) fp.textContent=t;
     pintarAncla(k);
   }
