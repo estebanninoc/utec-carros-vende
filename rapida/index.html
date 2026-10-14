@@ -3,15 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Más de 24.000 manuales de taller de carros · el de tu marca y tu modelo</title>
+<title>AUTOTEK: más de 24.000 manuales de taller de carros · el de tu marca y tu modelo</title>
 <meta name="description" content="Más de 24.000 manuales de taller y diagramas, organizados por marca, modelo y año, de 57 marcas de carros. Para el mecánico de taller, para el que repara su propio carro y para el que está aprendiendo. Pago único de US$19.99, con 80% de descuento.">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="Más de 24.000 manuales de taller · el de tu carro está adentro">
+<meta property="og:title" content="AUTOTEK: más de 24.000 manuales de taller · el de tu carro está adentro">
 <meta property="og:description" content="57 marcas, por marca, modelo y año, con el diagrama eléctrico del tuyo. Mecánicos, dueños que reparan y los que están aprendiendo. Pago único de US$19.99.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://estebanninoc.github.io/utec-carros-landing/pack-scroll/img/og.jpg">
+<!-- og propio (obra carros-logo-autotek, 2026-10-14): el anterior apuntaba al repo
+     del LAB (estebanninoc.github.io/utec-carros-landing) y era un PLACEHOLDER que decia
+     "[PENDIENTE] imagen de producto en produccion" + la palabra PRO (vetada por Esteban).
+     O sea: la tarjeta de WhatsApp/Facebook la servia otro repo y sin marca. -->
+<meta property="og:image" content="https://auto-tek.pro/rapida/img/og-autotek.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="img/logo-mark-96.png">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 <!-- ORDEN CB7: preload solo de la fuente crítica (Inter Tight = --disp, usada por h1/logo/botones). Inter (--sans, body) carga sin preload. -->
@@ -501,6 +507,33 @@
   .dp-stage .anim-ph{position:absolute;inset:0;border-radius:10px}
   .dp-stage-mini .anim-ph{position:relative;aspect-ratio:784/1361;max-height:55vh;width:auto;margin:0 auto;border-radius:10px}
   @media(max-width:820px){.dp-stage-mini .anim-ph{max-height:45vh}}
+  /* ===== AUTOTEK — obra carros-logo-autotek (2026-10-14) =====
+     Orden de Esteban (14-oct): "logo e icono de autotek", con las 2 imagenes.
+     Su doctrina del 13-oct, TEXTUAL, es la que manda el reparto:
+       "el de las letras va arriba y el logo icono va abajo al final de pagina.
+        El icono es para donde no se ve bien el logo".
+     Molde identico al que ya corre en moto-data.pro.
+     Antes aca habia un lockup generico del Lab: logo-mark.svg + el texto "CARROS DATA",
+     una marca que no existe. Sale de los 2 lugares (nav y pie).
+     Las reglas viejas .logo .mark y .logo .sub quedan en el archivo pero se quedan sin
+     nadie a quien pintar (0 usos): no se borran para no mover una sola linea de las que
+     ya estaban. El ancho del nav esta MEDIDO con chromium a 320/360/390/1280, no a ojo:
+     el boton ACCEDE mide 117,6px y el wrap deja 280px utiles a 320px.
+     REVERSA: borrar este bloque y devolver los 2 <div class="logo"> originales. */
+  nav .logo img{display:block;height:auto;width:224px}
+  footer .logo img{display:block}
+  /* Anchos MEDIDOS con chromium, no a ojo. El boton del nav (#btn-nav) necesita
+     176,3px para no partirse en 2 lineas, y el .wrap deja (viewport - 40px) utiles.
+     De ahi sale cada escalon, con aire sobrante medido entre logo y boton:
+       320px -> logo  92px (aire 12,7px)   360px -> logo 128px (aire 15,8px)
+       390px -> logo 160px (aire 13,8px)  1280px -> logo 224px (aire 639,8px)
+     OJO: a 320px el boton YA se partia en 2 lineas ANTES de esta obra (medido en vivo
+     el 14-oct: boton 117,6x64,7 y aire 0px contra el lockup viejo). Estos escalones lo
+     dejan en 1 linea en los 4 anchos. */
+  @media(max-width:820px){nav .logo img{width:196px}}
+  @media(max-width:430px){nav .logo img{width:160px}}
+  @media(max-width:380px){nav .logo img{width:128px}}
+  @media(max-width:345px){nav .logo img{width:92px}}
 </style>
 <!-- Meta Pixel (pendiente ID real) — ORDEN CA7: stub fbq siempre definido (barato, sin red),
      pero fbevents.js (114KB) solo se pide si PIXEL_ID ya no es el placeholder. Al poner el ID
@@ -525,7 +558,7 @@ document.addEventListener('click',function(ev){
 
 <nav>
   <div class="wrap">
-    <div class="logo"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
+    <div class="logo"><img src="img/wordmark-autotek-520.png" alt="AUTOTEK" width="520" height="61"></div>
     <a href="https://buy.stripe.com/28EfZhc3F8tT3nb51v57W01?locale=es-419" class="btn" data-buy="1" id="btn-nav">ACCEDE · US$19.99</a>
   </div>
 </nav>
@@ -774,7 +807,7 @@ document.addEventListener('click',function(ev){
 
 <footer>
   <div class="wrap">
-    <div class="logo" style="justify-content:center;margin-bottom:12px"><span class="mark"><img src="img/logo-mark.svg" alt="" width="30" height="30"></span>CARROS<span class="sub">DATA</span></div>
+    <div class="logo" style="justify-content:center;margin-bottom:12px"><img src="img/emblema-autotek-291.png" alt="AUTOTEK" width="291" height="128" style="width:145px;height:64px"></div>
     <p>© 2026 · Biblioteca digital de mecánica automotriz. Entrega digital inmediata.</p>
     <p class="disc">Las marcas y logotipos mostrados pertenecen a sus respectivos dueños y se muestran solo para indicar compatibilidad de los manuales. Este material es una biblioteca educativa independiente; no está afiliado, patrocinado ni respaldado por ninguno de esos fabricantes.</p>
   </div>
