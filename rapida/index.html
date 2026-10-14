@@ -298,6 +298,12 @@
   .buybar .p{font-family:var(--disp);font-weight:900;font-size:1.25rem;letter-spacing:-.02em;line-height:1.1}
   .buybar .p small{display:block;font-family:var(--sans);font-weight:600;font-size:.68rem;color:var(--mut);letter-spacing:.02em}
   .buybar .btn{padding:12px 22px;font-size:.95rem;flex-shrink:0}
+  /* la barra se esconde DESLIZANDOSE (transform+opacity, en el compositor),
+     nunca con display: display no es animable y relayoutea toda la pagina.
+     110% y no 100% para que salga tambien el borde de arriba. */
+  .buybar{transform:translateY(0);opacity:1;will-change:transform,opacity;contain:layout;transition:transform .22s cubic-bezier(.22,.61,.36,1),opacity .18s linear}
+  .buybar.oculta{transform:translateY(110%);opacity:0;pointer-events:none}
+  @media(prefers-reduced-motion:reduce){.buybar{transition:none}}
 
 
   /* ORDER BUMPS */
@@ -819,16 +825,38 @@ document.addEventListener('click',function(ev){
 </div>
 
 <script>
-/* barra fija: se esconde cuando ya estás en la sección de precio */
+/* BARRA FIJA DE COMPRA — ORDEN DE ESTEBAN, 14-oct-2026, textual:
+   "cuando bajas se quita, cuando subes se sube. Facil, sencillo, un codigo basico."
+
+   REEMPLAZA al centinela anterior, que decidia por geometria del CTA +
+   IntersectionObserver (y antes por `display`). Aquel aparato tenia que resolver
+   "el boton real esta tapado?" en cada frame, y de ahi salian el parpadeo y la
+   demora al subir. Ahora la unica regla es la DIRECCION del scroll:
+
+     bajando -> se quita    ·    subiendo -> se pone    ·    arriba del todo -> quieta
+
+   Sin observers, sin histeresis de tiempo, sin leer layout. Solo pageYOffset
+   contra el valor anterior. El UMBRAL de 6px es lo unico que hay: evita que el
+   rebote de 1-2px haga titilar la barra. Conmuta por CLASE (transform+opacity,
+   que resuelve el compositor), nunca por `display`: display no es animable y
+   relayoutea la pagina entera en cada cambio. Sin JS la barra queda puesta, que
+   es el fail-safe correcto: un boton de mas, nunca de menos. */
 (function(){
-  var bar=document.getElementById('buybar'),c=document.getElementById('comprar'),h=document.querySelector('header');
-  var enPrecio=false,enHero=true;
-  function pinta(){ bar.style.display = (enPrecio||enHero) ? 'none' : ''; }
-  pinta();
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(en){ enPrecio=en[0].isIntersecting; pinta(); }).observe(c);
-    if(h) new IntersectionObserver(function(en){ enHero=en[0].isIntersecting; pinta(); }).observe(h);
-  }
+  var bar=document.getElementById('buybar');
+  if(!bar) return;
+  var TOPE=320;   /* px: arriba de esto manda el CTA del hero y la barra no estorba */
+  var MIN=6;      /* px: movimiento minimo para que cuente como bajar o subir */
+  function y(){ return window.pageYOffset||document.documentElement.scrollTop||0; }
+  function ver(v){ if(v) bar.classList.remove('oculta'); else bar.classList.add('oculta'); }
+  var ant=y();
+  ver(false);
+  addEventListener('scroll',function(){
+    var h=y();
+    if(h<TOPE)         ver(false);
+    else if(h>ant+MIN) ver(false);
+    else if(h<ant-MIN) ver(true);
+    if(Math.abs(h-ant)>=MIN) ant=h;
+  },{passive:true});
 })();
 
 /* precio + bonos */
