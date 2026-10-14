@@ -103,6 +103,29 @@
   .trust-chip .e{display:inline-flex;line-height:1}
   #contenido-completo .acc summary .em{display:inline-block;width:22px;margin-right:10px}
 
+  /* ===== ORDEN 14-oct (Esteban): "esto esta torcido". MEDIDO a 360px: .meta es
+     flex-shrink:0 y le comia el ancho al titulo => .tt quedaba en 101/121/176px,
+     el titulo se partia en 2-3 lineas, las filas median 142/168/91/91/91px y la
+     columna de .meta arrancaba en x=160/180/235/227/191 (ragged). Se porta el
+     mismo molde que ya corre en moto-data.pro: grid de 3 columnas y, en <=700px,
+     la .meta BAJA a su propia fila debajo del titulo (titulo a ancho completo,
+     metas todas al mismo x). El .em pasa a columna propia para que la 2a linea
+     del titulo alinee bajo el texto y no bajo el emoji.
+     Alcance: SOLO #contenido-completo (el acordeon del FAQ usa la misma clase
+     .acc y NO se toca). REVERSA: borrar este bloque. ===== */
+  #contenido-completo .acc summary{display:grid;grid-template-columns:minmax(0,1fr) auto auto;
+    align-items:center;column-gap:14px;row-gap:4px}
+  #contenido-completo .acc summary .tt{grid-area:1/1;min-width:0;display:flex;
+    align-items:flex-start;gap:10px}
+  #contenido-completo .acc summary .tt .em{flex:0 0 22px;margin-right:0}
+  #contenido-completo .acc summary .meta{grid-area:1/2}
+  #contenido-completo .acc summary::after{grid-area:1/3;min-width:16px;text-align:center}
+  @media(max-width:700px){
+    #contenido-completo .acc summary{grid-template-columns:minmax(0,1fr) auto}
+    #contenido-completo .acc summary .meta{grid-area:2/1;text-align:left;flex-shrink:1;padding-left:32px}
+    #contenido-completo .acc summary::after{grid-area:1/2/span 2/3;align-self:center}
+  }
+
   /* MOCKUP TELÉFONO (editor CapCut en blanco y negro) */
   .device{position:relative;width:262px;justify-self:center;filter:drop-shadow(0 34px 80px rgba(255,255,255,.14))}
   /* ORDEN AZ9/CA3: glow azul suave detrás del celular, dentro del mismo contexto de apilado
