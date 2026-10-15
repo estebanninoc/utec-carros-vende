@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- vel1-carros -->
+<!-- vel2-carros -->
 <!-- VEL1: píxel primero (antes que cualquier imagen/fuente) + conexiones a Meta abiertas desde ya. Mismo PIXEL_ID y mismos eventos. -->
 <link rel="preconnect" href="https://connect.facebook.net">
 <link rel="preconnect" href="https://www.facebook.com">
@@ -602,7 +603,7 @@ document.addEventListener('click',function(ev){
               <!-- CA1: el carrusel de 3 clips de moto no sirve para carros. Placeholder del
                    mismo tamaño; estructura de 3 slides original queda en comentario en
                    README-carros.md lista para pegar de vuelta cuando haya clips de carro. -->
-              <video class="hero-uno" src="vid/hero-carros.mp4" poster="img/dp-frames/mob/f_040.webp" muted loop playsinline autoplay preload="auto" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
+              <video class="hero-uno" data-src="vid/hero-carros.mp4" poster="img/dp-frames/mob/f_040.webp" muted loop playsinline autoplay preload="none" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
               <span class="rec">Paso a paso</span>
             </div>
           </div>
@@ -1348,6 +1349,21 @@ initMotor({stage:'scr-motor-stage',canvas:'scr-motor-canvas',n:102,lut:LUT_ARNES
    se piden apenas termina la carga (después del hero y del píxel). Mismo archivo, mismo tamaño reservado (width/height). */
 (function(){function poner(){[].forEach.call(document.querySelectorAll('img[data-src^="img/logos/"]'),function(im){im.src=im.getAttribute('data-src');});}
 if(document.readyState==='complete') poner(); else window.addEventListener('load',poner);})();
+</script>
+<script>
+/* VEL2: el video de la portada (1,26 MB) ya no compite con el píxel ni con el primer pantallazo. Mientras tanto se ve su
+   póster (el mismo frame f_040, precargado con prioridad alta). El video se pide después de 'load' (que espera a fbevents
+   y su config) y de un momento libre del navegador; arranca solo, igual que antes (muted/loop/autoplay). Mismo archivo. */
+(function(){
+  function arrancar(){
+    [].forEach.call(document.querySelectorAll('video.hero-uno[data-src]'),function(v){
+      v.preload='auto'; v.src=v.getAttribute('data-src'); v.removeAttribute('data-src');
+      var p=v.play(); if(p&&p.catch) p.catch(function(){});
+    });
+  }
+  function luego(){ if('requestIdleCallback' in window) requestIdleCallback(arrancar,{timeout:1500}); else setTimeout(arrancar,200); }
+  if(document.readyState==='complete') luego(); else window.addEventListener('load',luego);
+})();
 </script>
 </body>
 </html>
