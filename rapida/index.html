@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <!-- vel1-carros -->
 <!-- vel2-carros -->
+<!-- vel3-carros -->
 <!-- VEL1: píxel primero (antes que cualquier imagen/fuente) + conexiones a Meta abiertas desde ya. Mismo PIXEL_ID y mismos eventos. -->
 <link rel="preconnect" href="https://connect.facebook.net">
 <link rel="preconnect" href="https://www.facebook.com">
+<!-- VEL3: el checkout (Stripe) resuelve DNS desde ya -->
+<link rel="dns-prefetch" href="https://buy.stripe.com">
 <!-- Meta Pixel (pendiente ID real) — ORDEN CA7: stub fbq siempre definido (barato, sin red),
      pero fbevents.js (114KB) solo se pide si PIXEL_ID ya no es el placeholder. Al poner el ID
      real no hace falta tocar nada más, carga sola. -->
