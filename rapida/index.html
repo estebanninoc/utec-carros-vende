@@ -133,14 +133,14 @@
   }
 
   /* MOCKUP TELÉFONO (editor CapCut en blanco y negro) */
-  .device{position:relative;width:262px;justify-self:center;filter:drop-shadow(0 34px 80px rgba(255,255,255,.14))}
+  .device{position:relative;width:min(100%,440px);justify-self:center;filter:drop-shadow(0 34px 80px rgba(255,255,255,.14))}
   /* ORDEN AZ9/CA3: glow azul suave detrás del celular, dentro del mismo contexto de apilado
      que crea el filter de arriba (por eso basta con z-index:-1, no hace falta tocar nada más) */
-  .device::before{content:"";position:absolute;inset:-36px;z-index:-1;border-radius:50%;background:radial-gradient(60% 60% at 50% 46%,rgba(31,111,235,.38),transparent 72%);filter:blur(4px);pointer-events:none}
-  .phone{background:#0a0a0c;border:2px solid #2e2e34;border-radius:42px;padding:11px;position:relative}
-  .phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:80px;height:6px;border-radius:99px;background:#1c1c21;z-index:3}
-  .screen{border-radius:32px;overflow:hidden;background:#000;border:1px solid #1e1e24}
-  .pv{position:relative;overflow:hidden;aspect-ratio:9/12;background:radial-gradient(120% 75% at 50% 22%,rgba(255,255,255,.16),transparent 62%),linear-gradient(165deg,#1e1e24,#060608);display:flex;align-items:center;justify-content:center}
+  .device::before{content:"";position:absolute;inset:-36px -16px;z-index:-1;border-radius:50%;background:radial-gradient(60% 60% at 50% 46%,rgba(31,111,235,.38),transparent 72%);filter:blur(4px);pointer-events:none}
+  .phone{background:#0a0a0c;border:2px solid #2e2e34;border-radius:26px;padding:11px;position:relative}
+  .phone::before{content:"";position:absolute;right:14px;top:50%;transform:translateY(-50%);width:6px;height:80px;border-radius:99px;background:#1c1c21;z-index:3}
+  .screen{border-radius:16px;overflow:hidden;background:#000;border:1px solid #1e1e24}
+  .pv{position:relative;overflow:hidden;aspect-ratio:854/488;background:radial-gradient(120% 75% at 50% 22%,rgba(255,255,255,.16),transparent 62%),linear-gradient(165deg,#1e1e24,#060608);display:flex;align-items:center;justify-content:center}
   .pv .yt-hero{position:absolute;top:50%;left:50%;width:102%;height:136%;transform:translate(-50%,-50%);border:0;pointer-events:none;z-index:1}
   .pv .pv-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(.85)}
   .pv .tag{position:absolute;z-index:2;top:12px;left:12px;font-size:.6rem;font-weight:800;color:#000;background:#fff;padding:4px 10px;border-radius:99px}
@@ -343,7 +343,7 @@
     .cta-row{justify-content:center}
     .cta-note{display:none}
     .trust-row{justify-content:center}
-    .device{width:225px;margin:36px auto}
+    .device{width:100%;max-width:360px;margin:36px auto}
     .gallery{grid-template-columns:repeat(2,1fr);gap:8px}
     .fx{padding:9px;border-radius:11px}
     .fx span{font-size:.68rem}
@@ -596,7 +596,7 @@ document.addEventListener('click',function(ev){
               <!-- CA1: el carrusel de 3 clips de moto no sirve para carros. Placeholder del
                    mismo tamaño; estructura de 3 slides original queda en comentario en
                    README-carros.md lista para pegar de vuelta cuando haya clips de carro. -->
-              <img src="img/dp-frames/mob/f_040.webp" alt="Motor de un carro abierto en despiece, pieza por pieza." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="eager" decoding="async">
+              <video class="hero-uno" src="vid/hero-carros.mp4" poster="img/dp-frames/mob/f_040.webp" muted loop playsinline autoplay preload="auto" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
               <span class="rec">Paso a paso</span>
             </div>
           </div>
