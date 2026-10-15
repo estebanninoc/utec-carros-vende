@@ -603,7 +603,7 @@ document.addEventListener('click',function(ev){
               <!-- CA1: el carrusel de 3 clips de moto no sirve para carros. Placeholder del
                    mismo tamaño; estructura de 3 slides original queda en comentario en
                    README-carros.md lista para pegar de vuelta cuando haya clips de carro. -->
-              <video class="hero-uno" data-src="vid/hero-carros.mp4" poster="img/hero-carros-poster.webp" muted loop playsinline autoplay preload="none" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
+              <video class="hero-uno" src="vid/hero-carros.mp4" poster="img/hero-carros-poster.webp" muted loop playsinline autoplay preload="auto" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
               <span class="rec">Paso a paso</span>
             </div>
           </div>
@@ -1339,8 +1339,25 @@ function initMotor(cfg){
   window.addEventListener('resize',onResize);
   tick();
 }
-initEscena({stage:'dp-stage',canvas:'dp-canvas',n:71,
-  dirMob:'img/dp-frames/mob/',dirDesk:'img/dp-frames/desk/'});
+/* VEL3b: los 71 cuadros del despiece (2,0 MB) estan bajo el pliegue y se pedian apenas terminaba 'load',
+   justo cuando el video del hero empezaba a bajar: le ganaban la banda. initEscena() y su motor quedan
+   INTACTOS (byte-identicos al kit): lo unico que cambia es CUANDO se la llama. Arranca con lo que pase
+   primero -- el video ya reproduciendo, el usuario acercandose al stage (800px antes), o 2,5 s de techo
+   duro. Fail-open: si algo falla, el techo la llama igual y nunca se queda sin cuadros. */
+(function(){
+  var cfg={stage:'dp-stage',canvas:'dp-canvas',n:71,dirMob:'img/dp-frames/mob/',dirDesk:'img/dp-frames/desk/'};
+  var ya=false;
+  function arrancar(){ if(ya) return; ya=true; try{ initEscena(cfg); }catch(e){} }
+  var v=document.querySelector('video.hero-uno');
+  if(v){ if(v.readyState>=3){ setTimeout(arrancar,0); }
+         else { v.addEventListener('playing',arrancar,{once:true}); v.addEventListener('canplay',arrancar,{once:true}); } }
+  var st=document.getElementById('dp-stage');
+  if(st && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ io.disconnect(); arrancar(); return; } } },{rootMargin:'800px 0px'});
+    io.observe(st);
+  }
+  setTimeout(arrancar,2500);
+})();
 initMotor({stage:'scr-motor-stage',canvas:'scr-motor-canvas',n:102,lut:LUT_ARNES,
   dirMob:'img/arnes-frames/mob/',dirDesk:'img/arnes-frames/desk/'});
 </script>
@@ -1351,19 +1368,10 @@ initMotor({stage:'scr-motor-stage',canvas:'scr-motor-canvas',n:102,lut:LUT_ARNES
 if(document.readyState==='complete') poner(); else window.addEventListener('load',poner);})();
 </script>
 <script>
-/* VEL2: el video de la portada (1,26 MB) ya no compite con el píxel ni con el primer pantallazo. Mientras tanto se ve su
-   póster (el primer cuadro del propio video, precargado con prioridad alta). El video se pide después de 'load' (que espera a fbevents
-   y su config) y de un momento libre del navegador; arranca solo, igual que antes (muted/loop/autoplay). Mismo archivo. */
-(function(){
-  function arrancar(){
-    [].forEach.call(document.querySelectorAll('video.hero-uno[data-src]'),function(v){
-      v.preload='auto'; v.src=v.getAttribute('data-src'); v.removeAttribute('data-src');
-      var p=v.play(); if(p&&p.catch) p.catch(function(){});
-    });
-  }
-  function luego(){ if('requestIdleCallback' in window) requestIdleCallback(arrancar,{timeout:1500}); else setTimeout(arrancar,200); }
-  if(document.readyState==='complete') luego(); else window.addEventListener('load',luego);
-})();
+/* VEL3a: el video de la portada vuelve a pedirse desde el HTML (src + preload="auto"). Colgarlo de
+   'load' (VEL2) lo dejaba ULTIMO en la fila: se pedia a los 3,0 s y no se movia hasta los 15,0 s en red
+   lenta, porque en ese mismo instante arrancaban los 71 cuadros del despiece (2,0 MB) y le robaban la
+   banda. Lo que se difiere ahora son esos cuadros (ver VEL3b abajo), que estan bajo el pliegue. */
 </script>
 </body>
 </html>
