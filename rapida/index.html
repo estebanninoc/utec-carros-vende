@@ -26,7 +26,7 @@ document.addEventListener('click',function(ev){
 },true);
 </script>
 <!-- VEL1: la imagen del hero (elemento LCP) se pide con prioridad alta -->
-<link rel="preload" as="image" href="img/dp-frames/mob/f_040.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-carros-poster.webp" fetchpriority="high">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AUTOTEK: más de 24.000 manuales de taller de carros · el de tu marca y tu modelo</title>
 <meta name="description" content="Más de 24.000 manuales de taller y diagramas, organizados por marca, modelo y año, de 57 marcas de carros. Para el mecánico de taller, para el que repara su propio carro y para el que está aprendiendo. Pago único de US$19.99, con 80% de descuento.">
@@ -603,7 +603,7 @@ document.addEventListener('click',function(ev){
               <!-- CA1: el carrusel de 3 clips de moto no sirve para carros. Placeholder del
                    mismo tamaño; estructura de 3 slides original queda en comentario en
                    README-carros.md lista para pegar de vuelta cuando haya clips de carro. -->
-              <video class="hero-uno" data-src="vid/hero-carros.mp4" poster="img/dp-frames/mob/f_040.webp" muted loop playsinline autoplay preload="none" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
+              <video class="hero-uno" data-src="vid/hero-carros.mp4" poster="img/hero-carros-poster.webp" muted loop playsinline autoplay preload="none" aria-label="Motor de un carro abierto en despiece, pieza por pieza."></video>
               <span class="rec">Paso a paso</span>
             </div>
           </div>
@@ -1352,7 +1352,7 @@ if(document.readyState==='complete') poner(); else window.addEventListener('load
 </script>
 <script>
 /* VEL2: el video de la portada (1,26 MB) ya no compite con el píxel ni con el primer pantallazo. Mientras tanto se ve su
-   póster (el mismo frame f_040, precargado con prioridad alta). El video se pide después de 'load' (que espera a fbevents
+   póster (el primer cuadro del propio video, precargado con prioridad alta). El video se pide después de 'load' (que espera a fbevents
    y su config) y de un momento libre del navegador; arranca solo, igual que antes (muted/loop/autoplay). Mismo archivo. */
 (function(){
   function arrancar(){
